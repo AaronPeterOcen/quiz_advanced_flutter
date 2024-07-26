@@ -8,8 +8,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(context) {
-    var logoImg = Image.asset('assets/images/quiz-logo.png');
-
     return MaterialApp(
       home: Scaffold(
         body: Container(
