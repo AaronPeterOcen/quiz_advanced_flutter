@@ -11,21 +11,24 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   // activeScreen holds the current screen being displayed.
-  Widget? activeScreen;
+  // Widget? activeScreen;
 
-  @override
-  // Executed by Flutter when the StatefulWidget's State object is initialized
-  void initState() {
-    activeScreen = StartScreen(switchScreen);
-    super.initState();
-  }
+  // @override
+  // // Executed by Flutter when the StatefulWidget's State object is initialized
+  // void initState() {
+  //   // activeScreen = StartScreen(switchScreen);
+
+  //   super.initState();
+  // }
+  var activeScreen = "first-screen";
 
   // The switchScreen method changes the value of activeScreen and
   //triggers a rebuild of the widget tree to show the new screen.
   void switchScreen() {
     // The setState call ensures that the UI updates to reflect the new state.
     setState(() {
-      activeScreen = const QuestionsScreen();
+      // activeScreen = const QuestionsScreen();
+      activeScreen = "quiz-screen";
     });
   }
 
@@ -46,7 +49,9 @@ class _QuizState extends State<Quiz> {
               // radius: 0.80,
             ),
           ),
-          child: activeScreen,
+          child: activeScreen == "first-screen"
+              ? StartScreen(switchScreen)
+              : const QuestionsScreen(),
         ),
       ),
     );
