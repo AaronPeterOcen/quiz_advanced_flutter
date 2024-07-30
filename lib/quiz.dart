@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:quiz_advanced_flutter/questions_screen.dart';
 import 'package:quiz_advanced_flutter/start_screen.dart';
 
@@ -12,7 +11,14 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   // activeScreen holds the current screen being displayed.
-  Widget activeScreen = const StartScreen();
+  Widget? activeScreen;
+
+  @override
+  // Executed by Flutter when the StatefulWidget's State object is initialized
+  void initState() {
+    activeScreen = StartScreen(switchScreen);
+    super.initState();
+  }
 
   // The switchScreen method changes the value of activeScreen and
   //triggers a rebuild of the widget tree to show the new screen.
