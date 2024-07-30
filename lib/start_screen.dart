@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  // The constructor for the 'StartScreen' class.
+  // and the 'this.quizStarter' indicates that 'quizStarter' is being initialized via the constructor.
+  const StartScreen(this.quizStarter, {super.key});
+
+  // 'quizStarter' is a final field that holds a callback function.
+  // It is of type 'void Function()', meaning it is a function that takes no parameters and returns no value.
+  // This field is initialized by the constructor and cannot be changed after the 'StartScreen' instance is created.
+  final void Function() quizStarter;
 
   @override
   Widget build(context) {
@@ -36,6 +43,7 @@ class StartScreen extends StatelessWidget {
           OutlinedButton.icon(
             onPressed: () {
               // code to be executed when button pressed
+              quizStarter();
             },
             // Callback function to be executed when the button is pressed
             style: OutlinedButton.styleFrom(
