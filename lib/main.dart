@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
               ],
               begin: Alignment.bottomRight,
               end: Alignment.topLeft,
+              // radius: 0.80,
             ),
           ),
           child: const StartScreen(),

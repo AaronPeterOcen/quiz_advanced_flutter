@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
@@ -9,14 +8,17 @@ class StartScreen extends StatelessWidget {
     final logoImg = Image.asset(
       'assets/images/quiz-logo.png',
       width: 300,
+      color: const Color.fromARGB(147, 94, 176, 238),
     );
 
     return Center(
       child: Column(
+        //mainAxisSize is a property that determines how much space a widget
+        // should occupy in the main axis direction
         mainAxisSize: MainAxisSize.min,
         children: [
           logoImg,
-          // to add spacing between on screen items
+          //use sizedBox to add spacing between on screen items
           const SizedBox(
             height: 80,
           ),
