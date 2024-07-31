@@ -10,6 +10,38 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return const Text('hola quiz screen');
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            'The Question is ...',
+            style: TextStyle(color: Color.fromARGB(255, 236, 241, 243)),
+          ),
+          const SizedBox(height: 25),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text(
+              'A1',
+            ),
+          ),
+          const SizedBox(height: 25),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text(
+              'A2',
+            ),
+          ),
+          const SizedBox(height: 25),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text(
+              'A3',
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
