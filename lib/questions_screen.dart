@@ -17,18 +17,30 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            currentQuestion.text,
-            style: const TextStyle(color: Color.fromARGB(255, 236, 241, 243)),
-          ),
-          const SizedBox(height: 30),
-          ...currentQuestion.answers.map((answer) {
-            return AnswerButton(answerText: answer, onEnter: () {});
-          })
-        ],
+      child: Container(
+        margin: EdgeInsets.all(20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentQuestion.text,
+              style: const TextStyle(
+                color: Color.fromARGB(255, 236, 241, 243),
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 30),
+            // Iterate over each 'answer' in 'currentQuestion.answers'.
+            // 'map' creates a new list by applying the function to each item in the original list.
+            ...currentQuestion.answers.map((answer) {
+              // For each 'answer', create an 'AnswerButton' widget.
+              // 'answerText' is set to the current 'answer'.
+              // 'onEnter' is set to an empty function (placeholder for actual logic).
+              return AnswerButton(answerText: answer, onEnter: () {});
+            })
+          ],
+        ),
       ),
     );
   }

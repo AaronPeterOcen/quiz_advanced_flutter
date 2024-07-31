@@ -11,7 +11,7 @@ class AnswerButton extends StatelessWidget {
   final void Function() onEnter;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(context) {
     return Column(
       children: [
         const SizedBox(height: 10),
@@ -19,6 +19,10 @@ class AnswerButton extends StatelessWidget {
           onPressed: onEnter,
           style: ElevatedButton.styleFrom(
             // padding: EdgeInsets.all(10),
+            padding: const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 40,
+            ),
 
             backgroundColor: const Color.fromARGB(255, 2, 63, 168),
             foregroundColor: const Color.fromARGB(255, 251, 247, 246),
@@ -26,10 +30,7 @@ class AnswerButton extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
             ),
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Text(answerText),
-          ),
+          child: Text(answerText),
         ),
       ],
     );
