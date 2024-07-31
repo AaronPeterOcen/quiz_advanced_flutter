@@ -34,6 +34,12 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
+    Widget initialScreen = StartScreen(switchScreen);
+
+    if (activeScreen == 'quiz-screen') {
+      initialScreen = const QuestionsScreen();
+    }
+
     return MaterialApp(
       home: Scaffold(
         body: Container(
@@ -49,9 +55,12 @@ class _QuizState extends State<Quiz> {
               // radius: 0.80,
             ),
           ),
-          child: activeScreen == "first-screen"
-              ? StartScreen(switchScreen)
-              : const QuestionsScreen(),
+          // Using IF condition
+          child: initialScreen,
+          // Using a ternary operator
+          // child: activeScreen == "first-screen"
+          //     ? StartScreen(switchScreen)
+          //     : const QuestionsScreen(),
         ),
       ),
     );
