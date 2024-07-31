@@ -33,7 +33,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             const SizedBox(height: 30),
             // Iterate over each 'answer' in 'currentQuestion.answers'.
             // 'map' creates a new list by applying the function to each item in the original list.
-            ...currentQuestion.answers.map((answer) {
+            ...currentQuestion.getShuffledAnswers().map((answer) {
               // For each 'answer', create an 'AnswerButton' widget.
               // 'answerText' is set to the current 'answer'.
               // 'onEnter' is set to an empty function (placeholder for actual logic).
