@@ -60,7 +60,7 @@ class _QuizState extends State<Quiz> {
     }
 
     if (activeScreen == "results-screen") {
-      initialScreen = const ResultsScreen();
+      initialScreen = ResultsScreen(chosenAnswer: selectedAnswers);
     }
 
     return MaterialApp(
