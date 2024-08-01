@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
   // The constructor for the 'StartScreen' class.
@@ -30,13 +31,14 @@ class StartScreen extends StatelessWidget {
           logoImg,
           //use sizedBox to add spacing between on screen items
           const SizedBox(
-            height: 80,
+            height: 70,
           ),
-          const Text(
+          Text(
             "Learn Flutter the fun way",
-            style: TextStyle(
-              color: Color.fromARGB(255, 198, 182, 182),
-              fontSize: 20,
+            style: GoogleFonts.tiltWarp(
+              color: Colors.blue,
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
             ),
           ),
           const SizedBox(height: 30),
