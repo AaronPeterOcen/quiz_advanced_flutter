@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_advanced_flutter/data/question_data.dart';
 import 'package:quiz_advanced_flutter/questions_screen.dart';
 import 'package:quiz_advanced_flutter/start_screen.dart';
 
@@ -10,6 +11,7 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  List<String> selectedAnswers = [];
   // activeScreen holds the current screen being displayed.
   // Widget? activeScreen;
 
@@ -24,6 +26,7 @@ class _QuizState extends State<Quiz> {
 
   // The switchScreen method changes the value of activeScreen and
   //triggers a rebuild of the widget tree to show the new screen.
+
   void switchScreen() {
     // The setState call ensures that the UI updates to reflect the new state.
     setState(() {
@@ -32,12 +35,27 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+
+    if (selectedAnswers.length == questions.length) {
+      setState(
+        () {
+          selectedAnswers = [];
+          activeScreen = 'first-screen';
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     Widget initialScreen = StartScreen(switchScreen);
 
     if (activeScreen == 'quiz-screen') {
-      initialScreen = const QuestionsScreen();
+      initialScreen = QuestionsScreen(
+        onSelectAnswer: chooseAnswer,
+      );
     }
 
     return MaterialApp(

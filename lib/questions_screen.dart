@@ -4,7 +4,9 @@ import 'package:quiz_advanced_flutter/answer_button.dart';
 import 'package:quiz_advanced_flutter/data/question_data.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen({super.key, required this.onSelectAnswer});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() => _QuestionsScreenState();
@@ -13,7 +15,12 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   var currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  // Index of the current question being displayed
+  void answerQuestion(String selectedAnswer) {
+    // Call the onSelectAnswer method from the parent widget with the selected answer
+    widget.onSelectAnswer(selectedAnswer);
+
+    // Update the state to increment the current question index
     setState(() {
       currentQuestionIndex++;
     });
@@ -35,7 +42,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             Text(
               currentQuestion.text,
               style: GoogleFonts.tiltWarp(
-                  color: Color.fromARGB(255, 143, 183, 251),
+                  color: const Color.fromARGB(255, 143, 183, 251),
                   // fontWeight: FontWeight.bold,
                   fontSize: 20),
               textAlign: TextAlign.center,
@@ -49,7 +56,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
               // 'onEnter' is set to an empty function (placeholder for actual logic).
               return AnswerButton(
                 answerText: answer,
-                onEnter: answerQuestion,
+                onEnter: () {
+                  answerQuestion(answer);
+                },
               );
             })
           ],
