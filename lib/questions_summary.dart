@@ -20,15 +20,17 @@ class QuestionsSummary extends StatelessWidget {
             children: [
               // Display the 1-based index of the question in a Text widget
               Text(((info['questions_index'] as int) + 1).toString()),
-              Column(
-                children: [
-                  Text(info['questions'] as String),
-                  const SizedBox(
-                    height: 4,
-                  ),
-                  Text(info['chosen_answer'] as String),
-                  Text(info['correct_answer'] as String),
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    Text(info['questions'] as String),
+                    const SizedBox(
+                      height: 4,
+                    ),
+                    Text(info['chosen_answer'] as String),
+                    Text(info['correct_answer'] as String),
+                  ],
+                ),
               )
             ],
           );
