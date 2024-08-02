@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // FlutterError
 
 class QuestionsSummary extends StatelessWidget {
-  const QuestionsSummary({super.key, required this.summaryData});
+  const QuestionsSummary(this.summaryData, {super.key});
 
   // Define a final list of maps to hold the summary data
   final List<Map<String, Object>> summaryData;
@@ -20,6 +20,16 @@ class QuestionsSummary extends StatelessWidget {
             children: [
               // Display the 1-based index of the question in a Text widget
               Text(((info['questions_index'] as int) + 1).toString()),
+              Column(
+                children: [
+                  Text(info['questions'] as String),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  Text(info['chosen_answer'] as String),
+                  Text(info['correct_answer'] as String),
+                ],
+              )
             ],
           );
         },
