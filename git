@@ -9,8 +9,7 @@ read COMMIT_MESSAGE
 # Commit the changes with the user's message
 git commit -m "$COMMIT_MESSAGE"
 
-# Get the current branch name
-BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+BRANCH_NAME="main"
 
 # Push the changes to the remote repository
 git push origin $BRANCH_NAME
